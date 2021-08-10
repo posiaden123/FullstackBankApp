@@ -1,4 +1,4 @@
-package org.posiaden123.bank;
+package org.posiaden.bank;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
