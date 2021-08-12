@@ -3,3 +3,4 @@ A fullstack app created using a Spring backend in the summer of 10th grade and e
 implements:
 - Spring Web MVC
 - Hibernate
+- Spring Security
