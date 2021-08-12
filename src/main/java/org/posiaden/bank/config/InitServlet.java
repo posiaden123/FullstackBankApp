@@ -15,6 +15,6 @@ public class InitServlet extends AbstractAnnotationConfigDispatcherServletInitia
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/"};
+        return new String[]{"/*"};
     }
 }
