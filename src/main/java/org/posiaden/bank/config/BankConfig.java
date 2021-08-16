@@ -1,5 +1,6 @@
 package org.posiaden.bank.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,6 +24,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan(basePackages = "org.posiaden.bank")
 public class BankConfig implements WebMvcConfigurer {
+
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();

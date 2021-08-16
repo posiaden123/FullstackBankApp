@@ -36,10 +36,10 @@
             <div style="padding-top: 30px" class="panel-body">
 
                 <!-- Login Form -->
-                <form:form action="${pageContext.request.contextPath}/authenticateTheUser"
+                <form:form action="${pageContext.request.contextPath}/authenticate"
                            method="POST" class="form-horizontal">
 
-                    <!-- Place for messages: error, alert etc ... -->
+                    <!-- Place for messages -->
                     <div class="form-group">
                         <div class="col-xs-15">
                             <div>
@@ -53,12 +53,14 @@
                                     </div>
 
                                 </c:if>
-
-                                <!--
+                                <%-- logout message--%>
+                                <c:if test="${param.logout != null}">
                                 <div class="alert alert-success col-xs-offset-1 col-xs-10">
                                     You have been logged out.
                                 </div>
-                                -->
+                                </c:if>
+
+
 
                             </div>
                         </div>
