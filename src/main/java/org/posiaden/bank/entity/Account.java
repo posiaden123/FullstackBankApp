@@ -30,7 +30,6 @@ public class Account {
 
     @Getter
     @Setter
-    @Email
     @Column(name = "email")
     private String email;
 

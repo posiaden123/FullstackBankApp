@@ -1,10 +1,11 @@
 package org.posiaden.bank.service;
 
-import org.posiaden.bank.dao.AccountRepo;
+import org.posiaden.bank.dao.AccountDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,7 +14,10 @@ import javax.transaction.Transactional;
 public class UserService implements UserDetailsService {
 
     @Autowired
-    AccountRepo accountDAO;
+    private AccountDAO accountDAO;
+
+    @Autowired
+    private PasswordEncoder encoder;
 
     @Override
     @Transactional
@@ -24,4 +28,6 @@ public class UserService implements UserDetailsService {
         }
         return user;
     }
+
+
 }

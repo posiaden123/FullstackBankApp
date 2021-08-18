@@ -1,17 +1,18 @@
 package org.posiaden.bank.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
 public class BaseController {
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String redirect() {
         return "redirect:/home";
     }
-    @RequestMapping("/home")
+    @GetMapping("/home")
     public String landing() {
         return "landing-page";
     }

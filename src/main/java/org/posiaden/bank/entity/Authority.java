@@ -1,10 +1,11 @@
 package org.posiaden.bank.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Table(name = "authorities")
 @Entity
-public class Authority {
+public class Authority implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user", referencedColumnName = "user")

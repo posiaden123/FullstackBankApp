@@ -1,13 +1,15 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: bobwe
+  Date: 8/17/2021
+  Time: 8:35 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!doctype html>
-<html lang="en">
-
+<html>
 <head>
-
-    <title>Login Page</title>
-    <meta charset="utf-8">
+    <title>Sign-Up</title><meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Reference Bootstrap files -->
@@ -19,11 +21,8 @@
     <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-
 <body>
-
 <div>
-
     <div id="loginbox" style="margin-top: 50px;"
          class="mainbox col-md-3 col-md-offset-2 col-sm-6 col-sm-offset-2">
 
@@ -45,23 +44,6 @@
                             <div>
 
                                 <!-- Check for login error -->
-
-                                <c:if test="${param.error != null}">
-
-                                    <div class="alert alert-danger col-xs-offset-1 col-xs-10">
-                                        Invalid username and password.
-                                    </div>
-
-                                </c:if>
-                                <%-- logout message--%>
-                                <c:if test="${param.logout != null}">
-                                <div class="alert alert-success col-xs-offset-1 col-xs-10">
-                                    You have been logged out.
-                                </div>
-                                </c:if>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -79,23 +61,33 @@
 
                         <input type="password" name="password" placeholder="password" class="form-control" >
                     </div>
+<%--                    First Name--%>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                        <input name="firstName" placeholder="First Name" class="form-control" >
+                    </div>
+<%--                    Last Name--%>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                        <input  name="lastName" placeholder="Last Name" class="form-control" >
+                    </div>
+<%--                    Email--%>
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+
+                        <input type="email" name="email" placeholder="email" class="form-control" >
+                    </div>
 
                     <!-- Login/Submit Button -->
                     <div style="margin-top: 10px" class="form-group">
                         <div class="col-sm-6 controls">
-                            <button type="submit" class="btn btn-success">Login</button>
+                            <button type="submit" class="btn btn-success">Sign-Up</button>
                         </div>
                     </div>
 
                 </form:form>
-                <div style="margin-top: 10px" class="form-group">
-                    <div class="controls">
-                        <form:form method="get" action="${pageContext.request.contextPath}/signup">
-                            <button class="btn btn-success">Sign-Up</button>
-                        </form:form>
-                    </div>
-                </div>
-
 
             </div>
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class AccountRepo implements AccountDAO {
-
+    public AccountRepo(){}
     @Autowired
     private SessionFactory factory;
 
