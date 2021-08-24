@@ -14,8 +14,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @ComponentScan(basePackages = "org.posiaden.bank")
 @EnableWebSecurity
@@ -48,6 +46,12 @@ public class BankSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    @Override
+    public void configure(WebSecurity web) {
+        web
+                .ignoring()
+                .antMatchers("/resources/**");
+    }
 
     @Bean
     public PasswordEncoder encoder() {

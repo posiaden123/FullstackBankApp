@@ -15,6 +15,8 @@
     <!-- Reference Bootstrap files -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+    href="${pageContext.request.contextPath}/resources/css/error.css" type="text/css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
@@ -29,56 +31,79 @@
         <div class="panel panel-info">
 
             <div class="panel-heading">
-                <div class="panel-title">Sign In</div>
+                <div class="panel-title">Sign Up</div>
             </div>
 
             <div style="padding-top: 30px" class="panel-body">
 
                 <!-- Login Form -->
-                <form:form action="${pageContext.request.contextPath}/authenticate"
-                           method="POST" class="form-horizontal">
+
+                <form:form action="${pageContext.request.contextPath}/signup/auth"
+                           method="POST" class="form-horizontal" modelAttribute="account">
 
                     <!-- Place for messages -->
                     <div class="form-group">
                         <div class="col-xs-15">
                             <div>
 
-                                <!-- Check for login error -->
                             </div>
                         </div>
                     </div>
 
                     <!-- User name -->
+                    <div>
+                        <form:errors cssClass="error" path="username"/>
+                    </div>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
-                        <input type="text" name="username" placeholder="username" class="form-control">
-                    </div>
+                        <form:input type="text" name="username" placeholder="username" class="form-control" path="username"/>
 
+                    </div>
+                    <div>
+                        <form:errors cssClass="error" path="password"/>
+                    </div>
                     <!-- Password -->
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                        <input type="password" name="password" placeholder="password" class="form-control" >
+                        <form:input type="password" name="password" placeholder="password" class="form-control" path="password"/>
+
                     </div>
-<%--                    First Name--%>
+                    <div>
+                        <form:errors cssClass="error" path="firstName"/>
+                    </div>
+                    <%--                    First Name--%>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                        <input name="firstName" placeholder="First Name" class="form-control" >
+                        <form:input name="firstName" placeholder="first name" class="form-control" path="firstName"/>
+
                     </div>
-<%--                    Last Name--%>
+
+                    <div>
+                        <form:errors cssClass="error" path="lastName"/>
+                    </div>
+                    <%--                    Last Name--%>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 
-                        <input  name="lastName" placeholder="Last Name" class="form-control" >
+                        <form:input  name="lastName" placeholder="last name" class="form-control" path="lastName" />
+
                     </div>
-<%--                    Email--%>
+
+                    <%--                    Email--%>
+                    <div class="flex no-wrap">
+                        <form:errors class="error" path="email"/>
+                    </div>
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 
-                        <input type="email" name="email" placeholder="email" class="form-control" >
+                        <form:input type="email" name="email" placeholder="email" class="form-control" path="email"/>
+
                     </div>
+
+
 
                     <!-- Login/Submit Button -->
                     <div style="margin-top: 10px" class="form-group">
