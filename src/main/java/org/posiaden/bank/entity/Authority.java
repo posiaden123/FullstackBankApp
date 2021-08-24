@@ -36,5 +36,6 @@ public class Authority implements Serializable {
         this.role = role;
     }
 
+
     public Authority(){}
 }

@@ -66,13 +66,6 @@ public class BankConfig implements WebMvcConfigurer {
         return bean;
     }
 
-    @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        HibernateTransactionManager manager = new HibernateTransactionManager();
-        manager.setSessionFactory(getSessionFactory().getObject());
-        return manager;
-    }
-
     public final Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQLDialect");

@@ -1,8 +1,21 @@
 package org.posiaden.bank.service;
 
+import org.posiaden.bank.dao.AccountDAO;
+import org.posiaden.bank.entity.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AccountServiceImpl {
+import javax.transaction.Transactional;
 
+@Service
+public class AccountServiceImpl implements AccountService {
+    @Autowired
+    private AccountDAO dao;
+
+
+    @Override
+    @Transactional
+    public void save(Account account) {
+        dao.save(account);
+    }
 }
