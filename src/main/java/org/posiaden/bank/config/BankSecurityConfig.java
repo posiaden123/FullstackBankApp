@@ -36,7 +36,10 @@ public class BankSecurityConfig extends WebSecurityConfigurerAdapter {
                 authorizeRequests()
                 .antMatchers("/signup/**")
                 .permitAll()
-                .anyRequest().authenticated()
+//                EXAMPLE - Limiting using roles
+//                .antMatchers("/home")
+//                .hasRole("ADMIN")
+                .anyRequest().fullyAuthenticated()
                 .and()
                 .formLogin()
                 .loginPage("/signin")

@@ -13,9 +13,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
+import java.util.logging.Logger;
+
 @Repository
 public class AccountRepo implements AccountDAO {
-    public AccountRepo(){}
+    private Logger logger;
+    public AccountRepo(){
+        logger = Logger.getLogger(getClass().getName());
+    }
     @Autowired
     private SessionFactory factory;
 
@@ -35,6 +40,7 @@ public class AccountRepo implements AccountDAO {
         builder.username(account.getUsername());
         builder.password(account.getPassword());
         builder.roles(roleDAO.getAuthFromUser(user).getRole());
+        logger.info(builder.toString());
         return builder.build();
     }
 
