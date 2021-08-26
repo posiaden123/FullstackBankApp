@@ -4,13 +4,28 @@
 
 <html>
 <head>
-    <title>Home</title>
+    <title>Home</title><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Reference Bootstrap files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+    <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <h1>DEMO - Landing Page</h1>
-    <form:form action="${pageContext.request.contextPath}/authenticate" method="post">
-        <input type="submit" value="Logout">
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand px-2" href="#">United Bank</a>
+    <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item px-2">
+            <form:form action="${pageContext.request.contextPath}/authenticate" method="post" cssClass="form-inline my-2 my-lg-0">
+                <input type="submit" value="Logout" class="btn btn-outline-light">
+            </form:form>
+        </li>
+    </ul>
+</nav>
 
-    </form:form>
+
 </body>
 </html>
