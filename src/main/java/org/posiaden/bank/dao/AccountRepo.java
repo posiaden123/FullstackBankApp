@@ -33,6 +33,7 @@ public class AccountRepo implements AccountDAO {
 
     @Override
     public UserDetails findByUsername(String user) {
+        System.out.println(user);
         Session session = factory.getCurrentSession();
         Query<Account> users = session.createQuery("from Account where username=:user", Account.class).setParameter("user",user);
         User.UserBuilder builder = User.builder();

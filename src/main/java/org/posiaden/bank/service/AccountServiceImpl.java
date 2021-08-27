@@ -18,4 +18,11 @@ public class AccountServiceImpl implements AccountService {
     public void save(Account account) {
         dao.save(account);
     }
+
+    @Override
+    @Transactional
+    public Account getAccountFromUser(String user) {
+        System.out.println(user);
+        return dao.getFromUser(user);
+    }
 }

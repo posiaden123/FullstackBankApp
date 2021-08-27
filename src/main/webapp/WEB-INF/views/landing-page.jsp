@@ -17,6 +17,11 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand px-2" href="#">United Bank</a>
+    <ul class="nav navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="${pageContext.request.contextPath}/deposit">Deposit</a>
+        </li>
+    </ul>
     <ul class="nav navbar-nav ms-auto">
         <li class="nav-item px-2">
             <form:form action="${pageContext.request.contextPath}/authenticate" method="post" cssClass="form-inline my-2 my-lg-0">
@@ -25,7 +30,11 @@
         </li>
     </ul>
 </nav>
-
+<div class="card w-50 px-2" >
+    <div class="card-body">
+        <h5 class="card-title">Current Balance: $${balance}</h5>
+    </div>
+</div>
 
 </body>
 </html>

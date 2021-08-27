@@ -16,6 +16,7 @@ create table if not exists `accounts` (
 	`card_id` integer default null unique ,
     `user` varchar(45) DEFAULT NULL unique ,
 	`password` char(68) DEFAULT NULL,
+	`balance` float default 0,
     primary key(`id`),
      KEY `FK_DETAIL_idx` (`card_id`),
   CONSTRAINT `FK_DETAIL` FOREIGN KEY (`card_id`) REFERENCES `cards` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION

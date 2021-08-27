@@ -90,6 +90,17 @@ public class Account implements Serializable {
     @Column(name = "password")
     private String password;
 
+    public Float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Float balance) {
+        this.balance = balance;
+    }
+
+    @Column(name = "balance")
+    private Float balance;
+
 
 
 }
