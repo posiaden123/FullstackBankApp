@@ -7,4 +7,6 @@ public interface AccountDAO {
     UserDetails findByUsername(String user);
     void save(Account account);
     Account getFromUser(String user);
+
+    void addBalance(Float balance, Account account);
 }

@@ -25,4 +25,10 @@ public class AccountServiceImpl implements AccountService {
         System.out.println(user);
         return dao.getFromUser(user);
     }
+
+    @Override
+    @Transactional
+    public void addBal(Float balance, Account account) {
+        dao.addBalance(balance, account);
+    }
 }

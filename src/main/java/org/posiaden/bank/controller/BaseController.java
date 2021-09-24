@@ -37,7 +37,11 @@ public class BaseController {
         return "deposit";
     }
     @PostMapping("/deposit/auth")
-    public String confirm(@ModelAttribute("account") Account account) {
+    public String confirm(@ModelAttribute("account") Account acc) {
+        Float balance = acc.getBalance();
+        String details =  SecurityContextHolder.getContext().getAuthentication().getName();
+        Account account = accountService.getAccountFromUser(details);
+        accountService.addBal(balance, account);
         return redirect();
     }
 }

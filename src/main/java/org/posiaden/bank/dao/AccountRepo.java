@@ -62,4 +62,11 @@ public class AccountRepo implements AccountDAO {
         Session session = factory.getCurrentSession();
         return session.createQuery("from Account where username=:user",Account.class).setParameter("user",user).getSingleResult();
     }
+
+    @Override
+    public void addBalance(Float balance, Account account) {
+        Session session = factory.getCurrentSession();
+        balance = balance + account.getBalance();
+        session.createSQLQuery("update accounts set balance=:? where id=:o").setParameter("?",balance).setParameter("o",account.getId()).executeUpdate();
+    }
 }
