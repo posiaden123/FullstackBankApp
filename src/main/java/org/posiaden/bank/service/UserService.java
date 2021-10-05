@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+//Custom userdetailsservice for custom database validation.
 @Service
 public class UserService implements UserDetailsService {
 

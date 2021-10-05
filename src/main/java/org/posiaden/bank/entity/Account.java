@@ -5,6 +5,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 
+//JPA entity for table "accounts"
 @Entity
 @Table(name = "accounts")
 @ToString

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+//Controller for most requests to base path
 @Controller
 @RequestMapping("/")
 public class BaseController {
@@ -18,10 +19,13 @@ public class BaseController {
     @Autowired
     private AccountService accountService;
 
+    //redirect to home page on load
     @GetMapping("/")
     public String redirect() {
         return "redirect:/home";
     }
+
+    //lading page upon logging in
     @GetMapping("/home")
     public String landing(Model model) {
         String details =  SecurityContextHolder.getContext().getAuthentication().getName();
@@ -29,6 +33,8 @@ public class BaseController {
         model.addAttribute("balance",account.getBalance());
         return "landing-page";
     }
+
+    //path to deposit page
     @GetMapping("/deposit")
     public String deposit(Model model) {
         String details =  SecurityContextHolder.getContext().getAuthentication().getName();
@@ -36,6 +42,8 @@ public class BaseController {
         model.addAttribute("account",account);
         return "deposit";
     }
+
+    //update balance upon deposit
     @PostMapping("/deposit/auth")
     public String confirm(@ModelAttribute("account") Account acc) {
         Float balance = acc.getBalance();

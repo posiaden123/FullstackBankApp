@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.logging.Logger;
 
+//Implementation of AccountDAO, does all account operations on database
 @Repository
 public class AccountRepo implements AccountDAO {
     private Logger logger;
@@ -31,6 +32,7 @@ public class AccountRepo implements AccountDAO {
     @Autowired
     private PasswordEncoder encoder;
 
+    //Find an account based on user given
     @Override
     public UserDetails findByUsername(String user) {
         System.out.println(user);
@@ -46,6 +48,7 @@ public class AccountRepo implements AccountDAO {
     }
 
     @Override
+    //Save an account given to database
     public void save(Account account) {
         Session session = factory.getCurrentSession();
         String encoded = encoder.encode(account.getPassword());
@@ -58,12 +61,14 @@ public class AccountRepo implements AccountDAO {
     }
 
     @Override
+    //Get an account object from a username given
     public Account getFromUser(String user) {
         Session session = factory.getCurrentSession();
         return session.createQuery("from Account where username=:user",Account.class).setParameter("user",user).getSingleResult();
     }
 
     @Override
+    //Update balance of an account
     public void addBalance(Float balance, Account account) {
         Session session = factory.getCurrentSession();
         balance = balance + account.getBalance();

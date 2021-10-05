@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
+//Implementation of the AccountService
 @Service
 public class AccountServiceImpl implements AccountService {
     @Autowired

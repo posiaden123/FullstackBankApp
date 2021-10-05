@@ -9,6 +9,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+//Annotation to validate a proper first and last name in the sign-up form
+//Used in AccountDTO
 @Constraint(validatedBy = NameValidator.class)
 @Target({ElementType.ANNOTATION_TYPE,ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)

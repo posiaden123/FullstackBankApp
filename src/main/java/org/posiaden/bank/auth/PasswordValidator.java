@@ -6,18 +6,15 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-
+//Validation class for @Password annotation
 public class PasswordValidator implements ConstraintValidator<Password,String> {
-    Logger logger = Logger.getLogger(getClass().getName());
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
         if (s == null) {return false;}
         boolean captial = Pattern.compile("[A-Z]").matcher(s).find();
         boolean lower = Pattern.compile("[a-z]").matcher(s).find();
         boolean special = Pattern.compile("[$&+,:;=\\\\?@#|/'<>.^*()%!-]").matcher(s).find();
-        logger.info("Capital: " + captial);
-        logger.info("Lower: " + lower);
-        logger.info("Special: " + special);
+        //make sure no illegal characters present in password
         return captial && lower && special;
     }
 }

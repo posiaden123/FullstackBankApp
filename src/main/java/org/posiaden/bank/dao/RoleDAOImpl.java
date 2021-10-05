@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
+//Implementation of the RoleDAO object
 @Repository
 public class RoleDAOImpl implements RoleDAO{
 
@@ -18,6 +19,7 @@ public class RoleDAOImpl implements RoleDAO{
     @Lazy
     private AccountDAO accountDAO;
 
+    //Get authority from a user for spring security access validation
     @Override
     public Authority getAuthFromUser(String user) {
         Session session = factory.getCurrentSession();

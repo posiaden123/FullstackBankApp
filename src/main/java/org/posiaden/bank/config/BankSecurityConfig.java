@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+//Spring config for web security + authentication
 @Configuration
 @ComponentScan(basePackages = "org.posiaden.bank")
 @EnableWebSecurity
@@ -24,12 +25,14 @@ public class BankSecurityConfig extends WebSecurityConfigurerAdapter {
     @Lazy
     private UserService userDetailsService;
 
+    //use custom userService, which allows for custom database auth
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
         auth.authenticationProvider(auth());
     }
 
+    //allow requests to sign up form prior to login, set login endpoint, and authenticate requests once logged in
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.
@@ -51,6 +54,7 @@ public class BankSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
+    //allow requests to css files
     @Override
     public void configure(WebSecurity web) {
         web
@@ -58,11 +62,13 @@ public class BankSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/**");
     }
 
+    //Encoder used for password encryption
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(12);
     }
 
+    //set custom database authentication
     @Bean
     public DaoAuthenticationProvider auth() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();

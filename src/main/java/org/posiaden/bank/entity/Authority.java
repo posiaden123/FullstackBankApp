@@ -3,6 +3,7 @@ package org.posiaden.bank.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+//JPA Entity for table "authorities"
 @Table(name = "authorities")
 @Entity
 public class Authority implements Serializable {

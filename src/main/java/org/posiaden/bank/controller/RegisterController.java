@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+//Validation for creating an account, backend setup of new account
 @Controller
 @RequestMapping("/signup")
 public class RegisterController {
@@ -22,12 +23,14 @@ public class RegisterController {
     @Autowired
     private AccountService accountService;
 
+    //Init string trimmer for validation
     @InitBinder
     public void init(WebDataBinder binder) {
         StringTrimmerEditor trimmer = new StringTrimmerEditor(true);
         binder.registerCustomEditor(String.class,trimmer);
     }
 
+    //Setup account and save it to the database
     @PostMapping("/auth")
     public String auth(@Valid @ModelAttribute("account")AccountDTO transfer, BindingResult br) {
         if (br.hasErrors()) {
